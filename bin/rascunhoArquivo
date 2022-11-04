@@ -1,0 +1,217 @@
+/*
+	void leituraArquivoDeTexto() {
+
+		StringBuilder saida = new StringBuilder();
+
+		try {
+			File arquivo = new File("c:/git/arquivo.txt");
+
+			Scanner scanner = new Scanner(arquivo);
+
+			while (scanner.hasNextLine()) {
+				saida.append(scanner.nextLine());
+			}
+
+			scanner.close();
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+	}
+*/
+	/*
+	void menuGerarDetailConveniado() {
+
+		DetailCadastro detailCadastro = new DetailCadastro();
+
+		System.out.println("Digite identificação do tipo de registro: ");
+		String identificacaoTipoRegistro = scanner.nextLine();
+		identificacaoTipoRegistro.matches("[0-9]{1}");
+		detailCadastro.setIdentificacaoTipoRegistro(scanner.nextLine());
+
+		System.out.println("Digite código da unidade consumidora: ");
+		String codigoUnidadeConsumidora = scanner.nextLine();
+		codigoUnidadeConsumidora.matches("[0-9]{13}");
+		detailCadastro.setCodigoUnidadeConsumidora(Integer.valueOf(scanner.nextLine()));
+
+		System.out.println("Digite o valor de lançamento: ");
+		String valorLancamento = scanner.nextLine();
+		valorLancamento.matches("[0-9]{9}");
+		detailCadastro.setValorLancamento(Integer.valueOf(valorLancamento));
+
+		System.out.println("Digite data de geração de registro: ");
+		String dataGeracaoRegistro = scanner.nextLine();
+		dataGeracaoRegistro.matches("[0-9]{8}");
+		detailCadastro.setDataGeracaoRegistro(Integer.valueOf(dataGeracaoRegistro));
+
+		System.out.println("Digite comando de movimento: ");
+		String comandoMovimento = scanner.nextLine();
+		comandoMovimento.matches("[a-z]{2}");
+		detailCadastro.setDataGeracaoRegistro(Integer.valueOf(comandoMovimento));
+
+		System.out.println("Digite código da conta gerencial: ");
+		String codigoContaGerencial = scanner.nextLine();
+		codigoContaGerencial.matches("[a-zA-Z0-9]{8}");
+		detailCadastro.setCodigoContaGerencial(scanner.nextLine());
+
+		System.out.println("Digite número da cobertura/ocorrência: ");
+		String numeroCoberturaOcorrencia = scanner.nextLine();
+		numeroCoberturaOcorrencia.matches("[a-z]{2}");
+		detailCadastro.setCoberturaOcorrencia(Integer.valueOf(numeroCoberturaOcorrencia));
+
+		System.out.println(" ");
+		detailCadastro.setEspacosEmBranco(Integer.valueOf(" "));
+
+		System.out.println("Identificação do cliente no conveniado:");
+		String identificacaoClienteConveniado = scanner.nextLine();
+		numeroCoberturaOcorrencia.matches("[a-z]{6}");
+		detailCadastro.setIdentificacaoClienteConveniado(Integer.valueOf(identificacaoClienteConveniado));
+
+		System.out.println("Escolha uma opção:\n");
+		System.out.print("Digite 1 para pessoa física. \n");
+		System.out.print("Digite 2 para pessoa jurídica.\n");
+
+		Integer escolha = scanner.nextInt();
+
+		switch (escolha) {
+		case 1:
+			System.out.println("Digite o CPF: ");
+			String cpf = scanner.nextLine();
+			cpf.matches("[0-9]{11}");
+			detailCadastro.setCpfCliente(Integer.valueOf(cpf));
+			break;
+		case 2:
+			System.out.println("Digite o CNPJ: ");
+			String cnpj = scanner.nextLine();
+			cnpj.matches("[0-9]{12}");
+			detailCadastro.setCnpjCliente(Integer.valueOf(cnpj));
+			break;
+		}
+
+		System.out.println("Digite o mes inicio vigencia: ");
+		String mesInicio = scanner.nextLine();
+		mesInicio.matches("[0-9]{8}");
+		detailCadastro.setMesFimVigencia(Integer.valueOf(mesInicio));
+
+		System.out.println("Digite o mes fim vigencia: ");
+		String mesFim = scanner.nextLine();
+		mesFim.matches("[0-9]{8}");
+		detailCadastro.setMesFimVigencia(Integer.valueOf(mesFim));
+
+		if (escolha == 1) {
+			System.out.println("Digite o complemento CNPJ: ");
+
+			String cnpjComplemento = scanner.nextLine();
+			cnpjComplemento.matches("[0-9]{2}");
+			detailCadastro.setMesFimVigencia(Integer.valueOf(cnpjComplemento));
+		}
+
+		System.out.println(" ");
+		detailCadastro.setEspacosEmBranco2(scanner.nextLine());
+		System.out.println(" ");
+		detailCadastro.setEspacosEmBranco3(scanner.nextLine());
+		System.out.println(" ");
+		detailCadastro.setEspacosEmBranco4(Integer.valueOf(scanner.nextLine()));
+
+		System.out.println("Insira número sequencial do registro ");
+		String numeroSequencial = scanner.nextLine();
+		numeroSequencial.matches("[0-9]{6}");
+		detailCadastro.setNumeroSequencialRegistro(Integer.valueOf(numeroSequencial));
+
+		DetailCadastroEnviadoDAO detailCadastroEnviadoDAO = new DetailCadastroEnviadoDAO();
+
+		DetailCadastroEnviado detailCadastroEnviado = new DetailCadastroEnviado();		
+		detailCadastroEnviado.setEnviado(false);
+		detailCadastroEnviado.setDetailCadastro(detailCadastro);
+		
+
+		detailCadastroEnviadoDAO.adiciona(detailCadastroEnviado);
+
+		scanner.close();
+	}
+	*/
+	
+	/*	
+	private void enviarDetailConveniadoSalvos() {
+
+		DetailCadastroEnviadoDAO detailCadastroEnviadoDAO = new DetailCadastroEnviadoDAO();
+		EnvioDAO envioDAO = new EnvioDAO();
+
+		Envio envio = new Envio();
+
+		/// Enviar Cabeçalho
+		Header cabecalho = new Header();
+
+		cabecalho.setIdentificacaoTipoDeRegistro("1");
+		cabecalho.setContrato("01000000002022908203774000AC1");
+		cabecalho.setCodigoConcessionaria("0001");
+
+		StringBuilder dataEnvio = new StringBuilder();
+
+		LocalDate localDate = LocalDate.now();
+
+		localDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
+		Integer diaMes = localDate.getDayOfMonth();
+		Integer mes = localDate.getMonth().getValue();
+		Integer ano = localDate.getYear();
+
+		dataEnvio.append(diaMes).append(mes).append(ano);
+
+		System.out.println("Data envio: " + dataEnvio);
+
+		cabecalho.setDataEnvio(Integer.valueOf(dataEnvio.toString()));
+		cabecalho.setMotivoRecusaArquivoRemessa(null);
+		cabecalho.setNomeClienteContratante("ASSOCIACAO CULTURAL");
+		cabecalho.setNumeroSequencialEnvio(envioDAO.getUltimoIdUsado() + 1);
+		cabecalho.setNumeroSequencialRegistro(Integer.valueOf("000001"));
+		cabecalho.setSiglaMoeda("R$");
+		cabecalho.setTipoArquivo("1");
+
+		// Núcleo Detail Cadastro
+		List<DetailCadastroEnviado> detailCadastroNaoEnviados = detailCadastroEnviadoDAO.getListaNaoEnviado();
+		envio.setDetailCadastro(detailCadastroNaoEnviados);
+
+		// Criação de Rodapé
+		Footer footer = new Footer();
+
+		// Setar Parametros Objeto Envio
+		envio.setCabecalho(cabecalho);
+
+		// Insere Lista de Detail Cadastro no Objeto Envio
+		envio.setDetailCadastro(detailCadastroNaoEnviados);
+
+		// Setar Rodapé Em Envio
+		envio.setRodape(footer);
+
+		// Adicionar Envio ao BD
+		envioDAO.adicionar(envio);
+
+		// Retornar arquivo txt Envio
+		System.out.println("Exportando: " + envio.retornaArquivoDeEnvioTXT());
+
+		// Atualizar lista de details enviados para a flag true
+		for (DetailCadastroEnviado detailCadastroEnviado : detailCadastroNaoEnviados) {
+			detailCadastroEnviado.setEnviado(true);
+		}
+
+		// Atualizar detailsCadastrosAtualizadosNoBD
+		detailCadastroEnviadoDAO.atualizar(detailCadastroNaoEnviados);
+	}
+	*/
+	/*
+	private void receberDetailConcessionariaConveniado() {
+
+		StringBuilder textoCompleto = new Util().retornaTextoCompletoDoArquivoDetailConcessionariaConveniado();
+
+		Header header = new Header();
+		header.instanciaDadosComArquivoCompleto(textoCompleto);
+
+		Footer footer = new Footer();
+		footer.instanciaDadosComArquivoCompleto(textoCompleto);
+
+		List<DetailConcessionariaConveniado> detailConcessionariaConveniado = Util
+				.retornaListaDetailConcessionariaConveniadoComTextoCompleto(textoCompleto);
+	}
+*/

@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Mon Oct 31 21:44:45 BRT 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0184-30a5-d2dc-000006cb72f8 
+on database directory C:\PWA\Jornada04\CelescLayout\celesclayout with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@10f87f48 
+Loaded from file:/C:/PWA/Jornada04/CelescLayout/libs/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=18.0.1.1+2-6
+user.dir=C:\PWA\Jornada04\CelescLayout
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
